@@ -1,0 +1,92 @@
+				ASSIGNMENT(30 September)
+
+2.) Relative and absolute positioning are concepts commonly used in web development and graphic design, particularly in the context of CSS (Cascading Style Sheets). These positioning techniques determine how elements are placed and displayed on a webpage. Here's an overview of the differences between relative and absolute positioning:
+
+1. **Reference Point:**
+   - **Relative Positioning:** The position of the element is determined relative to its normal position in the document flow. It moves the element from where it would be normally positioned.
+   - **Absolute Positioning:** The position of the element is determined relative to its nearest positioned ancestor (an ancestor with a position other than static) or the initial containing block if there is no such ancestor.
+
+2. **Document Flow:**
+   - **Relative Positioning:** The element still occupies space in the document flow, and other elements are positioned as if it were in its normal place.
+   - **Absolute Positioning:** The element is taken out of the normal document flow, and other elements are positioned as if it doesn't exist. It won't affect the layout of other elements.
+
+3. **Sibling Elements:**
+   - **Relative Positioning:** The surrounding elements are not affected by the relative positioning of an element.
+   - **Absolute Positioning:** Sibling elements can be affected as absolute positioning can cause elements to overlap.
+
+4. **Scrolling:**
+   - **Relative Positioning:** If the page is scrolled, the element will move with the page.
+   - **Absolute Positioning:** The element will stay fixed at its specified position, regardless of scrolling.
+
+5. **Usage:**
+   - **Relative Positioning:** It is often used when you want to make small adjustments to the position of an element without affecting the overall layout.
+   - **Absolute Positioning:** It is commonly used when you want to precisely position an element relative to a specific ancestor or to remove it from the normal document flow.
+
+6. **Example:**
+   - **Relative Positioning:**
+     ```css
+     .box {
+       position: relative;
+       top: 10px;
+       left: 20px;
+     }
+     ```
+   - **Absolute Positioning:**
+     ```css
+     .box {
+       position: absolute;
+       top: 50px;
+       left: 100px;
+     }
+     ```
+
+In summary, relative positioning adjusts the position of an element relative to its normal position in the document flow, while absolute positioning positions an element relative to a specified ancestor or the initial containing block, taking it out of the normal document flow. The choice between them depends on the specific layout requirements of the webpage.
+
+5.)
+The `z-index` property in CSS is used to control the stacking order of positioned elements. Elements with a higher `z-index` value are stacked on top of elements with lower values. It only works on positioned elements (i.e., elements with a `position` value other than `static`).
+
+Here's a simple example to illustrate how `z-index` works:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    #box1 {
+      background-color: red;
+      left: 20px;
+      top: 20px;
+      z-index: 2;
+    }
+
+    #box2 {
+      background-color: blue;
+      left: 50px;
+      top: 50px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="box1"></div>
+  <div class="box" id="box2"></div>
+
+</body>
+</html>
+```
+
+In this example, there are two absolutely positioned div elements (`box1` and `box2`). Both have a `z-index` property set to control their stacking order.
+
+- `box1` has a higher `z-index` value (2) and will be stacked on top of `box2`.
+- `box2` has a lower `z-index` value (1) and will be behind `box1` in the stacking order.
+
+As a result, when you view this HTML file in a browser, you'll see a red box (`box1`) on top of a blue box (`box2`). The `z-index` property is useful when you have overlapping elements, and you want to control which one appears on top.
